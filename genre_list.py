@@ -1,0 +1,5 @@
+sciencefiction = 'Фантастика'
+horror = 'Ужасы'
+detectives = 'Детективы'
+cartoons = 'Мультфильмы'
+comedies = 'Комедии'

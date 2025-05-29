@@ -20,3 +20,7 @@
 - add_instance_collector - экземпляр класса BooksCollector
 - add_one_sciencefiction_book - добавление книги жанра: 'Фантастика'
 - add_one_book_every_genre - добавление по одной книге из каждого жанра
+
+### данные
+
+- файл genre_list

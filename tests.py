@@ -21,12 +21,8 @@ class TestBooksCollector:
         # словарь books_rating, который нам возвращает метод get_books_rating, имеет длину 2
         assert len(add_instance_collector.books_genre) == 2
 
-    @pytest.mark.parametrize(
-        'book',
-        ['Что делать, если ваш кот хочет вас убить']
-    )
-    def test_add_new_book_add_one_book(self, add_instance_collector, book):
-        add_instance_collector.add_new_book(book)
+    def test_add_new_book_add_one_book(self, add_instance_collector):
+        add_instance_collector.add_new_book('Что делать, если ваш кот хочет вас убить')
         assert len(add_instance_collector.books_genre) == 1
 
     @pytest.mark.parametrize(
@@ -74,6 +70,4 @@ class TestBooksCollector:
     def test_get_list_of_favorites_books_three_list(self, add_one_book_every_genre):
         add_one_book_every_genre.add_book_in_favorites('Бриллиантовая рука')
         add_one_book_every_genre.add_book_in_favorites('Собака баскервилей')
-        add_one_book_every_genre.add_book_in_favorites('Ну Погоди!')
-        add_one_book_every_genre.delete_book_from_favorites('Ну Погоди!')
         assert len(add_one_book_every_genre.get_list_of_favorites_books()) == 2

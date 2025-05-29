@@ -1,23 +1,9 @@
 import pytest
-from dataclasses import dataclass
+import genre_list
 
 
 # класс BooksCollector, в котором реализован конструктор и методы
 from main import BooksCollector
-
-@dataclass
-class Genrelist:
-    genre: str
-    genre_name: str
-
-
-sciencefiction = Genrelist('sciencefiction', 'Фантастика')
-horror = Genrelist('horror', 'Ужасы')
-detectives = Genrelist('detectives', 'Детективы')
-cartoons = Genrelist('cartoons', 'Мультфильмы')
-comedies = Genrelist('comedies', 'Комедии')
-
-
 
 @pytest.fixture(scope = 'function')
 def add_instance_collector():
@@ -28,7 +14,7 @@ def add_instance_collector():
 @pytest.fixture
 def add_one_sciencefiction_book(add_instance_collector):
     add_instance_collector.add_new_book('Что делать, если ваш кот хочет вас убить')
-    add_instance_collector.set_book_genre('Что делать, если ваш кот хочет вас убить', sciencefiction.genre_name)
+    add_instance_collector.set_book_genre('Что делать, если ваш кот хочет вас убить', genre_list.sciencefiction)
     add_one_sciencefiction_book = add_instance_collector
     return add_one_sciencefiction_book
 
@@ -36,14 +22,14 @@ def add_one_sciencefiction_book(add_instance_collector):
 @pytest.fixture
 def add_one_book_every_genre(add_instance_collector):
     add_instance_collector.add_new_book('Что делать, если ваш кот хочет вас убить')
-    add_instance_collector.set_book_genre('Что делать, если ваш кот хочет вас убить', sciencefiction.genre_name)
+    add_instance_collector.set_book_genre('Что делать, если ваш кот хочет вас убить', genre_list.sciencefiction)
     add_instance_collector.add_new_book('Собака баскервилей')
-    add_instance_collector.set_book_genre('Собака баскервилей', horror.genre_name)
+    add_instance_collector.set_book_genre('Собака баскервилей', genre_list.horror)
     add_instance_collector.add_new_book('Мой личный враг')
-    add_instance_collector.set_book_genre('Мой личный враг', detectives.genre_name)
+    add_instance_collector.set_book_genre('Мой личный враг', genre_list.detectives)
     add_instance_collector.add_new_book('Ну Погоди!')
-    add_instance_collector.set_book_genre('Ну Погоди!', cartoons.genre_name)
+    add_instance_collector.set_book_genre('Ну Погоди!', genre_list.cartoons)
     add_instance_collector.add_new_book('Бриллиантовая рука')
-    add_instance_collector.set_book_genre('Бриллиантовая рука', comedies.genre_name)
+    add_instance_collector.set_book_genre('Бриллиантовая рука', genre_list.comedies)
     add_one_book_every_genre = add_instance_collector
     return add_one_book_every_genre
